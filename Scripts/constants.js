@@ -104,3 +104,7 @@ Math.sign = function(x) {
 		
 	return 0;
 };
+var ghost_mode = {
+	sleep : 0,
+	awake : 1,
+};
