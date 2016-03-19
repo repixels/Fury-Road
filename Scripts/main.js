@@ -1897,20 +1897,16 @@ var PipePlant = Plant.extend({
  * DOCUMENT READY STARTUP METHOD
  * -------------------------------------------
  */
-$(document).ready(function() {
+ var sounds;
+ $(document).ready(function() {
 
-var soundManager = new SoundManager();
-soundManager.setup({
-  url: 'sound/Kalimba.mp3',
-  
-  onready: function() {
-  var sounds = soundManager.createSound();
-  }
-});
-////
+  soundManager.setup({
+   onready: function() {
+   sounds = soundManager.createSound( {url: 'sound/Kalimba.mp3',id: 'sound'});
+   soundManager.play('sound');
+   }
+ });
 	var level = new Level('world');
-    //var soundManager = new SoundManager();
-	//var sounds = soundManager.createSound({url: 'sound/Kalimba.mp3'});
 	level.load(definedLevels[0]);
 	level.setSounds(sounds);
 	level.start();
