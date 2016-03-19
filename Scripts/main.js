@@ -1898,8 +1898,21 @@ var PipePlant = Plant.extend({
  * -------------------------------------------
  */
 $(document).ready(function() {
+
+var soundManager = new SoundManager();
+soundManager.setup({
+  url: 'sound/Kalimba.mp3',
+  
+  onready: function() {
+  var sounds = soundManager.createSound();
+  }
+});
+////
 	var level = new Level('world');
+    //var soundManager = new SoundManager();
+	//var sounds = soundManager.createSound({url: 'sound/Kalimba.mp3'});
 	level.load(definedLevels[0]);
+	level.setSounds(sounds);
 	level.start();
 	keys.bind();
 });
